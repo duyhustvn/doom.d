@@ -92,3 +92,13 @@
   (require 'dap-node)
   ;; (dap-node-setup 1)
   )
+
+
+;; Treemacs
+(defface custom-line-highlight '((t (:background "#f2f2f2" :extend t))) "")
+(add-hook
+ 'treemacs-mode-hook
+ (defun channge-hl-line-mode ()
+   (setq-local hl-line-face 'custom-line-highlight)
+   (overlay-put hl-line-overlay 'face hl-line-face)
+   (treemacs--setup-icon-background-colors)))
