@@ -53,6 +53,42 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq
- projectile-project-search-path '("~/Code/")
- )
+;; config code path for projectile
+(setq projectile-project-search-path '("~/Code/"))
+
+(use-package! lsp-mode
+  :commands lsp
+  :config
+  (setq lsp-keymap-prefix "C-c l"
+        lsp-idle-delay 0.2
+        lsp-enable-file-watchers nil))
+
+(use-package! lsp-ui
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-headerline-breadcrumb-enable t ; Hiển thị đường dẫn file
+        lsp-lens-enable t
+        )
+  :bind (:map lsp-ui-mode-map
+         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+         ([remap xref-find-references] . lsp-ui-peek-find-references)
+         ([remap xref-pop-marker-stack] . lsp-ui-peek-jump-backward)
+         ))
+
+;; Bind `C-c l d` to `dap-hydra` for easy access
+(general-define-key
+  :keymaps 'lsp-mode-map
+  :prefix lsp-keymap-prefix
+  "d" '(dap-hydra t :wk "debugger"))
+
+;; config for dap mode
+(use-package! dap-mode
+  :config
+  (dap-ui-mode 1)
+  (dap-ui-many-windows-mode 1)
+  (dap-tooltip-mode 1)
+  (require 'dap-go)
+  ;; (dap-go-setup 1)
+  (require 'dap-node)
+  ;; (dap-node-setup 1)
+  )
