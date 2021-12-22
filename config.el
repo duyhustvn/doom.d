@@ -88,9 +88,9 @@
   (dap-ui-many-windows-mode 1)
   (dap-tooltip-mode 1)
   (require 'dap-go)
-  ;; (dap-go-setup 1)
+  (dap-go-setup 1)
   (require 'dap-node)
-  ;; (dap-node-setup 1)
+  (dap-node-setup 1)
   )
 
 
