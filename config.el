@@ -53,8 +53,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; config code path for projectile
-(setq projectile-project-search-path '("~/Code/"))
+
+;; search project in path non-recursively, only show folder inside "Code" 1 level
+;; (setq projectile-project-search-path '("~/Code/")
+;;
+;; search project in path recursively, show all folder inside "Code" multiple levels
+(setq projectile-project-search-path (cddr (directory-files "~/Code" t)))
 
 (use-package! lsp-mode
   :commands lsp
