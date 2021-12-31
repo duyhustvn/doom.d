@@ -61,11 +61,12 @@
 (setq projectile-project-search-path (cddr (directory-files "~/Code" t)))
 
 (use-package! lsp-mode
-  :commands lsp
-  :config
+  :commands (lsp lsp-deferred)
+  :init
   (setq lsp-keymap-prefix "C-c l"
         lsp-idle-delay 0.2
-        lsp-enable-file-watchers nil))
+        lsp-enable-file-watchers nil)
+  )
 
 (use-package! lsp-ui
   :commands lsp-ui-mode
