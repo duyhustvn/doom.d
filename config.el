@@ -107,3 +107,59 @@
    (setq-local hl-line-face 'custom-line-highlight)
    (overlay-put hl-line-overlay 'face hl-line-face)
    (treemacs--setup-icon-background-colors)))
+
+
+;; Engine mode
+(use-package! engine-mode
+  :config
+  (engine/set-keymap-prefix (kbd "C-c s"))
+  (setq ;; browse-url-browser-function 'browse-url-default-macosx-browser ;; for macosx
+        ;; engine/browser-function 'browse-url-default-macosx-browser ;; for macosx
+        engine/browser-function 'browse-url-chrome
+        )
+
+  ;; Code Overflow
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "h")
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+
+  ;; Node Package Manager
+  (defengine npm
+    "https://www.npmjs.com/search?q=%s"
+    :keybinding "n")
+
+  ;; Rust Package Management
+  (defengine crates
+    "https://crates.io/search?q=%s"
+    :docstring "Crates Package Management for Rust"
+    :keybinding "cc")
+  (defengine rust-std
+    "https://doc.rust-lang.org/std/?search=%s"
+    :keybinding "cs")
+
+  ;; Languages
+  (defengine translate
+    "https://translate.google.com/?sl=en&tl=vi&text=%s&op=translate"
+    :keybinding "t")
+  (defengine cambridge
+    "https://dictionary.cambridge.org/vi/dictionary/english/%s"
+    :keybinding "e")
+
+
+  ;; Social
+  (defengine youtube
+    "http://www.youtube.com/results?aq=f&oq=&search_query=%s"
+    :keybinding "y")
+
+  ;; Search
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "g")
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+
+  (engine-mode 1))

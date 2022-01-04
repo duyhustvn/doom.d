@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! dap-mode)
+(package! engine-mode)
