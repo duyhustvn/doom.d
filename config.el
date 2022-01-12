@@ -79,6 +79,27 @@
          ([remap xref-pop-marker-stack] . lsp-ui-peek-jump-backward)
          ))
 
+(use-package go-mode)
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Start LSP Mode and YASnippet mode
+(add-hook 'go-mode-hook #'lsp-deferred)
+(add-hook 'go-mode-hook #'yas-minor-mode)
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
+
+(defun lsp-typescript-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'typescript-mode-hook #'lsp-typescript-install-save-hooks)
+
 ;; Bind `C-c l d` to `dap-hydra` for easy access
 (general-define-key
   :keymaps 'lsp-mode-map
