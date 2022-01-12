@@ -63,8 +63,7 @@
 (use-package! lsp-mode
   :commands (lsp lsp-deferred)
   :init
-  (setq lsp-keymap-prefix "C-c l"
-        lsp-idle-delay 0.2
+  (setq lsp-idle-delay 0.2
         lsp-enable-file-watchers nil)
   )
 
