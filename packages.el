@@ -51,3 +51,4 @@
 
 (package! dap-mode)
 (package! engine-mode)
+(package! protobuf-mode)

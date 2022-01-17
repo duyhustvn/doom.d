@@ -95,16 +95,12 @@
   :config
   (setq typescript-indent-level 2))
 
+(use-package protobuf-mode)
+
 (defun lsp-typescript-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'typescript-mode-hook #'lsp-typescript-install-save-hooks)
-
-;; Bind `C-c l d` to `dap-hydra` for easy access
-(general-define-key
-  :keymaps 'lsp-mode-map
-  :prefix lsp-keymap-prefix
-  "d" '(dap-hydra t :wk "debugger"))
 
 ;; config for dap mode
 (use-package! dap-mode
