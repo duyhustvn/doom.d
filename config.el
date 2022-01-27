@@ -95,12 +95,16 @@
   :config
   (setq typescript-indent-level 2))
 
-(use-package protobuf-mode)
-
 (defun lsp-typescript-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'typescript-mode-hook #'lsp-typescript-install-save-hooks)
+
+(use-package js2-mode
+  :mode "\\.js\\'"
+  :hook (js2-mode . lsp-deferred))
+
+(use-package protobuf-mode)
 
 ;; config for dap mode
 (use-package! dap-mode

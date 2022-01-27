@@ -52,3 +52,6 @@
 (package! dap-mode)
 (package! engine-mode)
 (package! protobuf-mode)
+(package! js2-mode)
+(package! typescript-mode)
+(package! go-mode)
