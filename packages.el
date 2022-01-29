@@ -55,3 +55,6 @@
 (package! js2-mode)
 (package! typescript-mode)
 (package! go-mode)
+(package! python-mode)
+(package! lsp-python-ms)
+(package! pyvenv)

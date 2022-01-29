@@ -104,6 +104,19 @@
   :mode "\\.js\\'"
   :hook (js2-mode . lsp-deferred))
 
+(use-package! python-mode
+  :hook (python-mode . lsp-deferred)
+  :custom
+  (python-shell-interpreter "python3")
+  (dap-python-executable "python3")
+  (dap-python-debugger 'debugpy)
+  :config
+  (require 'dap-python))
+
+(use-package! pyvenv
+  :config
+  (pyvenv-mode 1))
+
 (use-package protobuf-mode)
 
 ;; config for dap mode
@@ -116,6 +129,8 @@
   ;; (dap-go-setup 1)
   (require 'dap-node)
   ;; (dap-node-setup 1)
+  ;; (require 'dap-python)
+  ;; (dap-python-setup 1)
   )
 
 
