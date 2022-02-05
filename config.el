@@ -79,7 +79,7 @@
          ([remap xref-pop-marker-stack] . lsp-ui-peek-jump-backward)
          ))
 
-(use-package go-mode)
+(use-package! go-mode)
 (defun lsp-go-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
@@ -89,7 +89,7 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'go-mode-hook #'yas-minor-mode)
 
-(use-package typescript-mode
+(use-package! typescript-mode
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
   :config
@@ -100,7 +100,7 @@
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'typescript-mode-hook #'lsp-typescript-install-save-hooks)
 
-(use-package js2-mode
+(use-package! js2-mode
   :mode "\\.js\\'"
   :hook (js2-mode . lsp-deferred))
 
@@ -117,7 +117,7 @@
   :config
   (pyvenv-mode 1))
 
-(use-package protobuf-mode)
+(use-package! protobuf-mode)
 
 ;; config for dap mode
 (use-package! dap-mode
