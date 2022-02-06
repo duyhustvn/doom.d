@@ -133,6 +133,12 @@
   ;; (dap-python-setup 1)
   )
 
+(use-package! org)
+(use-package! org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; Treemacs
 (defface custom-line-highlight '((t (:background "#f2f2f2" :extend t))) "")

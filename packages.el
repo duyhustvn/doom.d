@@ -58,3 +58,4 @@
 (package! python-mode)
 (package! lsp-python-ms)
 (package! pyvenv)
+(package! org-bullets)
