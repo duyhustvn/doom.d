@@ -133,7 +133,10 @@
   ;; (dap-python-setup 1)
   )
 
-(use-package! org)
+(use-package! org
+  :config
+  (setq org-ellipsis " ▾"))
+
 (use-package! org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
